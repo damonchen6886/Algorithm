@@ -99,3 +99,6 @@ public class PeakElement2 {
 //        [16,41,29],
 //        [15,17,24],
 //        ]
+
+// time: m: rows. n: columns;
+//   O(nlogm)
