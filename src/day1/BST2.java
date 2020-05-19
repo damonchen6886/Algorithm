@@ -1,7 +1,8 @@
 
 package day1;
 
-//1.1 Given a target integer T and an integer array A sorted in ascending order, find the index i in A such that A[i] is closest to T.(follow up of Q1)
+//1.1 Given a target integer T and an integer array A sorted in ascending order,
+// find the index i in A such that A[i] is closest to T.(follow up of Q1)
 //        Assumptions
 //        There can be duplicate elements in the array, and we can return any of the indices with same value.
 //        Examples

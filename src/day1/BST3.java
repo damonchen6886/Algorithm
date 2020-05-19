@@ -1,5 +1,6 @@
 package day1;
-//1.2 Given a target integer T and an integer array A sorted in ascending order, find the index of the first occurrence of T in A or return -1 if there is no such index. （follow up of Q1）
+//1.2 Given a target integer T and an integer array A sorted in ascending order,
+// find the index of the first occurrence of T in A or return -1 if there is no such index. （follow up of Q1）
 //        Assumptions
 //        There can be duplicate elements in the array.
 //        Examples
@@ -66,7 +67,7 @@ public class BST3 {
     public static void main(String[] args) {
         BST3 test = new BST3();
         int[] A = new int[]{1, 2, 3};
-        int[] B = new int[]{1, 4, 6};
+        int[] B = new int[]{2, 2};
         int[] C = new int[]{1, 3,3 , 4};
         int[] D = new int[]{1,2,2,2,3};
         int[] E = new int[]{1, 2, 2, 2, 3, 4,5,6,7,12,34,64,78,123,222,321,356};
@@ -75,6 +76,9 @@ public class BST3 {
         System.out.println("expect: 1 " + test.bst3(D,2));
         System.out.println("expect: 1 " + test.bst3(C,3));
         System.out.println("expect: 1 " + test.bst3(E,2));
+        System.out.println("expect: -1 " + test.bst3(E,8));
+        System.out.println("expect: 0 " + test.bst3(B,2));
+
 
     }
 

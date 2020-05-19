@@ -1,6 +1,7 @@
 package day1;
 
-//1.3 Given a target integer T and an integer array A sorted in ascending order, find the index of the last occurrence of T in A or return -1 if there is no such index.
+//1.3 Given a target integer T and an integer array A sorted in ascending order,
+// find the index of the last occurrence of T in A or return -1 if there is no such index.
 //        Assumptions
 //        There can be duplicate elements in the array.
 //        Examples
