@@ -57,6 +57,11 @@ public class Permutations {
 
 
 
+    //--------------------------------------------------------------------
+    // below are only for test purpose. not answer
+    //------------------------------------------------------------
+
+
     public static List<List<Integer>> permutation2(int[] array){
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         if(array == null || array.length == 0) return result;

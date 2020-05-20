@@ -33,7 +33,35 @@ public class SubsetWithDuplicates {
 //                                                    ||   ||  ||  ||                    |
 //                                                                                       |
 //  Remove the 1. this is the cause of the duplicate of result. --------------------------
+//                                             []
+//          a                        /                  \
+//                                 [a]                   []
+//          b               /              \
+//                       [ab]              [a]        ..........
+//          b          /     \             /  \
+//                 [abb]     [ab]      [ab]     [a]   ..........
+//          c       /  \     /   \     /   \    / \
+//             [abbc] [abb][abc][ab][abc] [ab][ac][a] ........
 //
+//
+//                                            []
+//          a                        /                  \
+//                                 [a]                   []
+//          b               /              \
+//                       [ab]              [a]        ..........
+//          b          /     \              |
+//                 [abb]     [ab]           |     ..........
+//          b                 |             |
+//          b                 |             |
+//          .                 |             |
+//          .                 |             |
+//          .                 |             |
+//                            |             |
+//          c       /  \      / \          /\
+//             [abbc] [abb] [abc][ab]     [ac][a] ........
+
+
+
 //  */
 
 
