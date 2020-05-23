@@ -41,7 +41,7 @@ public class combination {
             result.add(new ArrayList<>(cur));
             return;
         }
-        if(!cur.contains(1)){return;}
+
         for(int i = 0;  i < n; i++){
             cur.add(arr[i]);
             dfs(arr, i, k, result, cur);
@@ -50,9 +50,35 @@ public class combination {
 
     }
 
+
+    public static List<List<Integer>> combine(int n, int k){
+        List<List<Integer>> res = new ArrayList<>();
+        if(n == 0 || k == 0) return res;
+        List<Integer> cur = new ArrayList<Integer>();
+        dfs(1, n, k, cur, res);
+        return res;
+    }
+    private static void dfs(int start, int n, int k, List<Integer> cur, List<List<Integer>> result){
+        // base case
+        if(cur.size() == k){
+            result.add(new ArrayList<Integer>(cur));
+            return;
+        }
+        // recursion rule
+        for(int i = start; i <= n; i++){
+            cur.add(i);
+            dfs(i+1, n, k, cur, result);
+            // handle back tracking
+            cur.remove(cur.size()-1);
+        }
+    }
+
+
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
         System.out.println(combination(4,2));
+        System.out.println(combine(4,2));
     }
 
 }
