@@ -25,6 +25,30 @@ public class TreeHeight {
 
 
     }
+int ans;
+    // return sum of the depth of all the nodes in  a binary tree
+    // Space:O(height) = O(n) worst case
+    public  int getHeight2(TreeNode root){
+        // base case:
+        ans = 0;
+        dfs(root, 0);
+        return ans;
+
+    }
+
+    public  void dfs(TreeNode t, int dep){
+         ans += dep;
+         if(t.left != null){
+             dfs(t.left, dep+1);
+         }
+         if(t.right != null){
+             dfs(t.right, dep+1);
+         }
+
+
+    }
+
+
 
 
 
@@ -92,7 +116,42 @@ public class TreeHeight {
         three.left = five;
         five.left = six;
         two.left = seven;
+        //          1
+        //        /   \
+        //       2      3
+        //      /\      /
+        //     4  5    7
+        //    /
+        //   6
+        //  /
+        // 7
+        TreeNode root2 = new TreeNode(1);
+        TreeNode two2 = new TreeNode(2);
+        TreeNode three2 = new TreeNode(3);
+        TreeNode four2 = new TreeNode(4);
+        TreeNode five2 = new TreeNode(5);
+        TreeNode six2 = new TreeNode(6);
+        root2.left =two2;
+        two2.left = four2;
+        four2.right = five2;
+        root2.right = three2;
+        three2.right = six2;
+        //          1
+        //        /   \
+        //       2      3
+        //      /       \
+        //     4          6
+        //     \
+        //      5
+
+
+
+        TreeHeight H1 = new TreeHeight();
+        int height2=  H1.getHeight2(root);
+        int height3=  H1.getHeight2(root2);
         int height = getHeight(root);
         System.out.println(height);
+        System.out.println(height2);
+        System.out.println(height3);
     }
 }

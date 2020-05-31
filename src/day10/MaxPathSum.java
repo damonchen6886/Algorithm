@@ -173,7 +173,93 @@ public class MaxPathSum {
         max[0] = Math.max(current, max[0]);
         return root.value + left + right;
     }
-
+//  // follow 0:
+//    public static int getHeight(TreeNode root){
+//        // base case:
+//        if(root == null) return 0;
+//        int left = getHeight(root.left);
+//        int right = getHeight(root.right);
+//        return Math.max(left,right) + 1;
+//    }
+//
+//    // follow 1:全部一脉，照单全收
+//    public static int maxPathSumI(TreeNode root){
+//        // base case: case 1.2.3
+//        if(root.left == null && root.right == null){
+//            return root.value;
+//        }
+//        if(root.left == null){
+//            return root.value + maxPathSumI(root.right);
+//        }
+//        if(root.right == null){
+//            return root.value + maxPathSumI(root.left);
+//        }
+//        // current level manipulation
+//        int left = maxPathSumI(root.left);
+//        int right = maxPathSumI(root.right);
+//        return root.value + Math.max(left, right);
+//    }
+//    // follow 2: 有锅我不背
+//    public static int maxPathSumII(TreeNode root){
+//        // 当你有多个参数需要进行计算时，用数组传递进去
+//        int[] max = new int[]{Integer.MIN_VALUE};
+//        dfsI(root, max);
+//        return max[0];
+//    }
+//    public static int dfsI(TreeNode root, int[] max){
+//        // base case
+//        if(root == null){
+//            return 0;
+//        }
+//        // recursion rule
+//        int left = dfsI(root.left, max);
+//        int right = dfsI(root.right, max);
+//        int current = Math.max(Math.max(left, right),0) + root.value;
+//        max[0] = Math.max(current, max[0]);
+//        return current;
+//    }
+//
+//    // follow 3: 人字形我全都要
+//    public static int maxPathSumIII(TreeNode root){
+//        int[] max = new int[]{Integer.MIN_VALUE};
+//        dfsII(root,max);
+//        return max[0];
+//    }
+//    public static int dfsII(TreeNode root, int[] max){
+//        // base case;
+//        if(root == null){
+//            return 0;
+//        }
+//        // recursion rule
+//        int left = dfsII(root.left, max);
+//        int left = dfsII(root.right, max);
+//        left = left < 0 ? 0 : left;
+//        right = right < 0 ? 0 : right;
+//        int current = root.value + left + right;
+//        max[0] = Math.max(max[0], current);
+//        return root.value + Math.max(left, right);
+//        // 真我全都要
+//        return root.value + left + right;
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println("Hello, world!");
+//    }
+//}
+//    //                -5
+//    //
+//    //              /    \
+//    //
+//    //            20      11
+//    //
+//    //                 /    \
+//    //
+//    //                6     14
+//    //
+//    //                       / \
+//    //
+//    //                    -4     -6
+//    //
 
 
 
