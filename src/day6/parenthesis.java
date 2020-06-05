@@ -5,6 +5,7 @@ import java.util.List;
 
 public class parenthesis {
 
+    // given n pair of parenthesis and print all valid possible combinations
     public static List<String> parenthesis(int n){
         // n represent n paris of parenthesis
         List<String> res = new ArrayList<String>();
