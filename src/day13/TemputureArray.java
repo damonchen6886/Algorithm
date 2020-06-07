@@ -1,5 +1,6 @@
 package day13;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -11,7 +12,7 @@ public class TemputureArray {
     //
     //
 
-    //     temperaturesT = [73, 74, 75, 71, 69, 72, 76, 73], your output should be[1, 1, 4, 2, 1, 1, 0, 0].
+    //
     public int[] warmer(int[] tem){
         if(tem == null || tem.length == 0){
             return new int[0];
@@ -28,5 +29,22 @@ public class TemputureArray {
         }
         return res;
     }
+
+    // method 2: from left to right:
+    public int[] warmerfromstart(int[] temp){
+        Deque<Integer> stack = new ArrayDeque<Integer>();
+        int[] result  = new int[temp.length];
+        for(int i =0; i < temp.length;i++){
+            while(!stack.isEmpty() && temp[i] > temp[stack.peek()]){
+                int index = stack.pop();
+                result[index] = i - index;
+            }
+            stack.push(i);
+        }
+        return result;
+    }
+
+
+
 
 }
