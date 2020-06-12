@@ -49,7 +49,6 @@ public class NumofIslands {
 
     }
 
-
     // numbers of island, bfs
     int[][] dir = new int[][]{{1,0},{0,1},{-1,0},{0,1}};
     public int numsOfIsland(int[][] island){
