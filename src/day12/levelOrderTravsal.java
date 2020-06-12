@@ -67,7 +67,7 @@ public class levelOrderTravsal {
 
     // Queue (FIFO)
     // BSF : Queue
-    // Deque interface --> queue --> poll, offer
+    // Deque interface --> queue --> offer, poll
     //                 --> stack --> push, pop
     //                 --> deque --> offerFirst, offerLast, pollFirst, pollLast
     public List<List<Integer>> levelOrderbfs(TreeNode root){
