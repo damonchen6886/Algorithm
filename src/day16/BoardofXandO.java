@@ -32,7 +32,7 @@ public class BoardofXandO {
         for(int i = 0; i < line; i++){
             for(int j = 0; j < column; j++){
                 if(i == 0 || i == column-1 || j ==0 || j == line-1){
-                    if(map[i][j] == "O"){
+                    if(map[i][j].equals("O")){
                         queue.offer(new Point(i,j));
 
                         while(!queue.isEmpty()){
@@ -41,7 +41,7 @@ public class BoardofXandO {
                             for(int k = 0; k < direction.length; k++){
                                 int x = p.x+direction[k][0];
                                 int y = p.x+direction[k][1];
-                                if(x >=0 && x < line-1 && y>= 0&& y<column-1 && map[x][y] == "O"){
+                                if(x >=0 && x < line-1 && y>= 0&& y<column-1 && map[x][y].equals("O")){
                                     queue.offer(new Point(x,y));
                                     map[x][y] = "#";
                                 }
