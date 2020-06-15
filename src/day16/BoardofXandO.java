@@ -33,6 +33,7 @@ public class BoardofXandO {
             for(int j = 0; j < column; j++){
                 if(i == 0 || i == column-1 || j ==0 || j == line-1){
                     if(map[i][j].equals("O")){
+                        map[i][j] ="#";
                         queue.offer(new Point(i,j));
 
                         while(!queue.isEmpty()){

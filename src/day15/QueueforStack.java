@@ -21,29 +21,13 @@ public class QueueforStack {
 
     // pop
     public int pop(){
-        int size = queue.size();
-        for(int i = 0; i < size-1; i++){
-            int temp = queue.poll();
-            queue.offer(temp);
-
-        }
-        return queue.poll();
+        return queue.remove();
 
     }
 
     // top
     public int top(){
-        int size = queue.size();
-        int temp;
-        for(int i = 0; i < size-1; i++){
-            temp = queue.poll();
-            queue.offer(temp);
-
-        }
-        int result = queue.peek();
-        temp = queue.poll();
-        queue.offer(temp);
-        return result;
+       return queue.peek();
 
     }
 
