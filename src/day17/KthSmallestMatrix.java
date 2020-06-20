@@ -65,15 +65,11 @@ public class KthSmallestMatrix {
         int row = matrix[0].length;
         boolean[][] visited = new boolean[column][row];
 
-        PriorityQueue<Point> heap = new PriorityQueue<>(new Comparator<Point>(){
-            @Override
-            public int compare(Point p1, Point p2){
-                if(p1.value == p2.value){
-                    return 0;
-                }
-                return p1.value < p2.value ? -1:1;
+        PriorityQueue<Point> heap = new PriorityQueue<>((p1, p2) -> {
+            if(p1.value == p2.value){
+                return 0;
             }
-
+            return p1.value < p2.value ? -1:1;
         });
         heap.offer(new Point(0,0,matrix[0][0]));
         visited[0][0] = false;
@@ -82,9 +78,9 @@ public class KthSmallestMatrix {
             for(int i = 0; i< direction.length; i++){
                 int x = p.x+ direction[i][0];
                 int y = p.y+ direction[i][1];
-                if(x > 0 && x < column && y > 0 && y< row && visited[x][y]){
+                if(x > 0 && x < column && y > 0 && y< row && !visited[x][y]){
                     heap.offer(new Point(x,y,matrix[x][y]));
-                    visited[x][y] = false;
+                    visited[x][y] = true;
                 }
             }
 

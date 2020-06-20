@@ -27,12 +27,13 @@ public class TrapWater {
     public int trapwater(int[] arr){
         int[] leftheight  = new int[arr.length];
         int[] rightheight = new int[arr.length];
-
+        leftheight[0] = arr[0];
+        rightheight[arr.length-1] = arr[arr.length-1];
         for(int i = 1; i < arr.length; i++){
-            leftheight[i] = Math.max(leftheight[i-1],leftheight[i]);
+            leftheight[i] = Math.max(arr[i-1],leftheight[i]);
         }
         for(int i = arr.length-2; i > 0; i--){
-            rightheight[i] = Math.max(rightheight[i+1],rightheight[i]);
+            rightheight[i] = Math.max(rightheight[i+1],arr[i]);
 
         }
 
