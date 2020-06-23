@@ -29,7 +29,7 @@ public class KthMostFrequentElement {
             public int compare(String a, String b){
                 if(count.get(a).equals(count.get(b))){
                     // sort in alphabetical order
-                    a.compareTo(b);
+                    return a.compareTo(b);
                 }
                 return count.get(a) > count.get(b) ? -1:1;
             }
