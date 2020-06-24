@@ -40,7 +40,11 @@ public class RotateSortedArray {
         RotateSortedArray test = new RotateSortedArray();
         int[] A = new int[]{4,5,6,7,0,1,2};
         int[] B = new int[]{4,5,6,7,0,1,2,3};
+        int[] C = new int[]{2,1};
+        int[] D = new int[]{1,2};
         System.out.println("expected 0 "+ test.roateSortArray(A));
+        System.out.println("expected 1 "+ test.roateSortArray(C));
+        System.out.println("expected 1 "+ test.roateSortArray(D));
 
     }
 }
