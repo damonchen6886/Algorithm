@@ -8,6 +8,10 @@ import java.util.Queue;
 public class SearchWords {
 
 
+    //Given a 2D board and a word, find if the word exists in the grid.
+    //
+    //The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
     public boolean twoDboard(String[] args, String s){
         if(args == null || args.length == 0){
             return false;
@@ -121,7 +125,76 @@ public class SearchWords {
     }
 
 
-    // dfs
+
+    // dfs leetcode accedpted version:
+    class Solution {
+        int[][] direction = {{0,1},{0,-1},{1,0},{-1,0}};
+        public boolean exist(char[][] board, String s) {
+            if(board == null || board.length == 0 || board[0].length == 0){
+                return false;
+            }
+            List<int[]> plist=  findhead(board,s);
+
+            boolean[][] visited = new boolean[board.length][board[0].length];
+            for(int i = 0;  i < plist.size(); i++){
+
+                if (dfs(board, s, visited, plist.get(i)[0],plist.get(i)[1], 0)){
+                    return true;}
+
+            }
+            return false;
+
+
+        }
+
+        private boolean dfs(char[][] board, String s, boolean[][] visited, int x1,int y1, int level){
+
+            if(level == s.length()){
+                return true;
+            }
+            if( x1 >= board.length || x1 < 0 || y1>= board[0].length || y1 < 0){
+                return false;
+            }
+            if( visited[x1][y1] ||board[x1][y1] != s.charAt(level)){
+                return false;
+            }
+
+
+            visited[x1][y1] = true;
+
+            for(int i = 0; i < direction.length; i++){
+                int x = x1 + direction[i][0];
+                int y = y1 + direction[i][1];
+                if(dfs(board, s,visited, x,y,level+1)){
+                    return true;
+                }
+            }
+            visited[x1][y1] = false;
+            return false;
+        }
+
+        private List<int[]> findhead(char[][] board, String s){
+            List<int[]> p = new ArrayList<>();
+            for(int i = 0; i < board.length; i++){
+                for(int j = 0; j < board[0].length; j++){
+                    if(board[i][j] == s.charAt(0)){
+                        int[] temp = new int[2];
+                        temp[0] = i;
+                        temp[1] = j;
+                        p.add(temp);
+                    }
+                }
+            }
+
+            return p;
+
+        }
+
+
+    }
+
+
+    // dfs wrong answer: the updated value x, y should not be saved inside the object or int[],
     public boolean twoDboard2(char[][] board, String s){
         if(board == null || board.length == 0 || board[0].length == 0){
             return false;
@@ -198,3 +271,5 @@ public class SearchWords {
     }
 
 }
+
+
