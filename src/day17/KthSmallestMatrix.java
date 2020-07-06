@@ -97,15 +97,12 @@ public class KthSmallestMatrix {
         int cols = matrix[0].length;
         // int byte boolean long short char -> Integer, Boolean, Long, Char
 
-        PriorityQueue<Point> minHeap = new PriorityQueue<Point>(k, new Comparator<Point>(){
-            @Override
-            public int compare(Point c1, Point c2){
+        PriorityQueue<Point> minHeap = new PriorityQueue<Point>(k, (c1, c2) -> {
 
-                if(c1.value == c2.value){
-                    return 0;
-                }
-                return c1.value < c2.value ? -1:1;
+            if(c1.value == c2.value){
+                return 0;
             }
+            return c1.value < c2.value ? -1:1;
         });
         boolean[][] visited = new boolean[rows][cols];
         minHeap.offer(new Point(0,0,matrix[0][0]));

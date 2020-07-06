@@ -38,7 +38,7 @@ public class LonestIncreasingContinueSubsqunce2D {
                 result = Math.max(result, dp[i][j]);
             }
         }
-        return result;
+        return result+1;
     }
     // Memorization
     public int search(int x, int y, int[][] matrix){
@@ -78,32 +78,32 @@ public class LonestIncreasingContinueSubsqunce2D {
         for(int i =0; i < row; i++){
             for(int j = 0; j < column; j++){
                 visited  = new boolean[row][column];
-                cur = dfs(matrix,i, j, result, visited);
+                cur = dfs(matrix,i, j,  visited);
                 result = Math.max(result, cur);
             }
         }
-        return result;
+        return result+1;
 
     }
     int[][] direction = {{-1,0},{1,0},{0,-1},{0,1}};
 
-    private int dfs(int[][] matrix, int row, int col, int result, boolean[][] visited){
+    private int dfs(int[][] matrix, int row, int col, boolean[][] visited){
         if(row < 0 || row > matrix.length || col < 0 || col > matrix[0].length || visited[row][col]){
             return 0;
         }
         visited[row][col] = true;
         int right = 0, left = 0, down= 0, up= 0;
         if(row != matrix.length-1 && matrix[row+1][col] > matrix[row][col]){
-             right = dfs(matrix, row+1, col, result, visited) + 1;
+             right = dfs(matrix, row+1, col,  visited) + 1;
         }
         if(row != 0 && matrix[row-1][col] > matrix[row][col]){
-             left = dfs(matrix, row -1, col, result, visited) + 1;
+             left = dfs(matrix, row -1, col,  visited) + 1;
         }
         if(col != matrix[0].length && matrix[row][col+1] > matrix[row][col]){
-             down = dfs(matrix, row, col + 1, result, visited) + 1;
+             down = dfs(matrix, row, col + 1,  visited) + 1;
         }
         if(col != 0 && matrix[row][col-1] > matrix[row][col]){
-             up = dfs(matrix, row, col - 1, result, visited) + 1;
+             up = dfs(matrix, row, col - 1,  visited) + 1;
         }
         visited[row][col] = false;
         return Math.max(right, Math.max(left, Math.max(up, down)));
