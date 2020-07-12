@@ -11,28 +11,42 @@ public class backpack4 {
     //[7]
     //[2, 2, 3]
 
-    public int backPackII(int[] weight, int size){
+
+
+    public int backPack4(int[] weight, int size){
         int[][] dp = new int[weight.length + 1][size + 1];
-        int count =0;
-        int curMax = 0;
+
         for(int i = 1; i <= weight.length; i++){
             for(int j = 1; j <= size; j++){
-                if(j >= weight[i-1]){
-                    if(dp[i-1][j]< dp[i][j-weight[i-1]] && dp[i][j-weight[i-1]]== curMax){
-                        count++;
+                for(int k = 0; k < j/(weight[i-1]); k++){
+                    if(j >= weight[i-1]){
+                        dp[i][j] = Math.max(dp[i-1][j], k*dp[i-1][j-k *weight[i-1]]);
+                    } else {
+                        dp[i][j] = dp[i-1][j];
                     }
-                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-weight[i-1]]);
-                    if(curMax < dp[i][j]){
-                        curMax = dp[i][j];
-                        count = 1;
-                    }
-                } else {
+                }
+            }
+        }
+        return dp[weight.length][size];
+    }
+    // another solution
+    public int backpack4(int[] arr, int target){
+        int[][] dp = new int[arr.length+1][target+1];
+        dp[0][0] = 1;
+        for(int i = 1 ; i < arr.length+1; i++){
+            for(int j = 1; j < target+1; j++){
+                if(j >= arr[i-1]){
+                    dp[i][j] = dp[i-1][j]+ dp[i][j-arr[i-1]];
+                }
+                else{
                     dp[i][j] = dp[i-1][j];
                 }
             }
         }
-        return count;
+        return dp[arr.length][target];
+
     }
+
 
     //Description
     //Given n items with sizenums[i] which an integer array and all positive numbers. An integertargetdenotes the size of a backpack. Find the number of possible fill the backpack.
@@ -42,6 +56,22 @@ public class backpack4 {
     //A solution set is:
     //[7]
     //[1, 3, 3]
+    public int backpack5(int[] arr, int target){
+        int[][] dp = new int[arr.length+1][target+1];
+        dp[0][0] = 1;
+        for(int i = 1 ; i < arr.length+1; i++){
+            for(int j = 1; j < target+1; j++){
+                if(j >= arr[i-1]){
+                    dp[i][j] = dp[i-1][j]+ dp[i-1][j-arr[i-1]];
+                }
+                else{
+                    dp[i][j] = dp[i-1][j];
+                }
+            }
+        }
+        return dp[arr.length][target];
+
+    }
 
 
 

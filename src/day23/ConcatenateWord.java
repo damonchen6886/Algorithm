@@ -16,7 +16,7 @@ public class ConcatenateWord {
     //
     //Word: “robob” return false
     //
-    //Word: “robcatbob” return true since it can be composed by "rob", "cat", "bob"  "ro"
+    //Word: “robcatbob” return true since it can be composed by "rob", "cat", "bob"
 
 
     public boolean canBreak(String input, String[] dict){
