@@ -52,7 +52,7 @@ public class backpack4 {
         int[] dp = new int[target+1];
         dp[0] = 1;
         for(int i = 1 ; i < arr.length+1; i++){
-            for(int j = 0; j < arr.length+1; j++){
+            for(int j = arr[i]; j < target+1; j++){
                 dp[j] = dp[j]+ dp[j-arr[i-1]];
             }
         }
