@@ -149,6 +149,12 @@ public class combination {
         System.out.println(combinationSum(new int[]{1,2,3,6,7}, 7));
         System.out.println(combinationSum2(new int[]{1,2,2,3,5,6,7}, 10));
         System.out.println(combinationSum3(new int[]{1,2,3}, 4));
+        int[] a = {1,2,3};
+        int[] b = new int[3];
+        b[2] = a[2];
+        a[2] =6;
+
+
     }
 
 
