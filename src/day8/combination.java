@@ -153,6 +153,7 @@ public class combination {
         int[] b = new int[3];
         b[2] = a[2];
         a[2] =6;
+        System.out.println(b[2]);
 
 
     }

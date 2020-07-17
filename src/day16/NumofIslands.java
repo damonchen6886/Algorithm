@@ -31,18 +31,13 @@ public class NumofIslands {
                                 direction[x][y] = 0;
                                 queue.offer(new Point(x,y));
                             }
-
-
-
                         }
-
                     }
 
                 }
 
             }
         }
-
 
         return islands;
 
@@ -121,6 +116,95 @@ public class NumofIslands {
             this.x = x;
             this.y = y;
         }
+    }
+
+
+
+//-------------------------------------------
+class UnionFind {
+
+    // Union Find
+    private int[] father = null; // guarantee to exist
+    // custom
+    private int count;
+
+    // constructor
+    public UnionFind(int n){
+        father = new int[n+1];
+        for(int i = 0; i < n; i++){
+            father[i] = i;
+        }
+    }
+
+    // find, compressed
+    private int find(int x){
+        // recursively find you dad
+        if(father[x] == x){
+            return x;
+        }
+        // recursive rule
+        return father[x] = find(father[x]);
+    }
+    // connect
+    private void connect(int a, int b){
+        // step 1: find the father
+        int father_a = find(a);
+        int father_b = find(b);
+        if(father_a != father_b){
+            father[father_a] = father_b;
+            count--;
+        }
+    }
+    // query
+    public int query(){
+        return count;
+    }
+
+    public void set_count(int total){
+        count = total;
+    }
+}
+    // UnionFind
+    // O(m*n + 4k);
+    // O(k*m*n);
+    public int numberOfIslands(int[][] grid){
+        int result = 0;
+        int n = grid.length;
+        int m = grid[0].length;
+        int total = 0;
+        UnionFind uf = new UnionFind(n*m);
+
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < m; j++){
+                if(grid[i][j] == 1){
+                    total++;
+                }
+            }
+        }
+
+        uf.set_count(total);
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == 1){
+                    // case 1: up
+                    if(i > 0 && grid[i-1][j] == 1){
+                        uf.connect(i*m + j, (i-1)*m + j);
+                    }
+                    // case 2: down
+                    if(i < m && grid[i+1][j] == 1){
+                        uf.connect(i*m + j, (i+1)*m + j);
+                    }
+                    // case 3: left
+                    if(j > 0 && grid[i][j-1]  == 1){
+                        uf.connect(i*m + j, i*m + j-1);
+                    }
+                    if(j < n && grid[i][j+1] == 1){
+                        uf.connect(i*m + j, i*m + j+1);
+                    }
+                }
+            }
+        }
+        return uf.query();
     }
 
 
