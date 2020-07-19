@@ -46,6 +46,24 @@ public class UnionFind {
 //        // recursive rule
 //        return father[x] = find(father[x]);
 //    }
+//  // compressed iterative:
+//public int compress_find(int x){
+//
+//    int x_parent = parent[x];
+//    // step 1: find real parent
+//    while(x_parent != parent[x_parent]){
+//        x_parent = parent[x_parent];
+//    } // x_parent is the thing you need to return
+//    // step 2：compress
+//    int temp = -1;
+//    int t_parent = parent[x];
+//    while(t_parent != parent[t_parent]){
+//        temp = parent[t_parent];
+//        parent[t_parent] = x_parent;
+//        t_parent = temp;
+//    }
+//    return x_parent;
+//}
 
 
 
