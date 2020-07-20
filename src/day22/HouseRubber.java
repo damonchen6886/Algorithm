@@ -1,7 +1,5 @@
 package day22;
 
-import day9.isTweakedBT;
-
 import java.util.HashMap;
 
 public class HouseRubber {
