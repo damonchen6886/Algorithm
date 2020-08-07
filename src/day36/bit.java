@@ -49,6 +49,41 @@ public class bit {
         // 算数右移 >>>  给左边无脑补0                  ex：1 0 1 1  --> 0 1 0 1
 
         // 逻辑左移 和算数左移 没区别  都给右边加0
+        // 0 ^ 0 = 0;
+        // x ^ x = 0;
+        // 0 ^ x = x;
+
+        //  a ^ b = c  -->  c ^ b = a  -->      c ^ a = b;
     }
+
+    //Given 2*n + 2 numbers, every numbers occurs twice except two, find them.
+    //Example 1:
+    //	Input:  [1,2,2,3,4,4,5,3]
+    //	Output:  [1,5]
+    //
+    //Example 2:
+    //	Input: [1,1,2,3,4,4]
+    //	Output:  [2,3]
+
+
+    // k * n + 1
+    public int[] singleValue(int[] num){
+        int xor = 0;
+        for(int i : num){
+            xor ^= i;
+        }
+        // get first different bits
+        int dif = xor - (xor & (xor - 1));
+        int groupZero = 0, groupOne = 0;
+        for(int i : num){
+            if((dif & i) == 0){
+                groupZero ^= i;
+            } else {
+                groupOne ^= i;
+            }
+        }
+        return new int[]{groupZero, groupOne};
+    }
+
 
 }
