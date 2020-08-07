@@ -51,7 +51,7 @@ public class TreeTravseIterate {
                 stack.push(cur.value);
                 cur = cur.left;
             } else {
-                // if can not go left, maning all the nodes on the left side of the top ode on the stack has been traversed
+                // if can not go left, maning all the nodes on the left side of the top node on the stack has been traversed
                 result.add(stack.pop());
                 cur = cur.right;
             }
