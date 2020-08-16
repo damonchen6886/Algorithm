@@ -15,7 +15,7 @@ import java.util.Map;
 //
 //Node 1's value is 1, both of its next and random pointer points to Node 2.
 //Node 2's value is 2, its next pointer points to null and its random pointer points
-public class copyNode {
+public class copyNodeRandom {
         class RandomLinkedList{
             public int value;
             public RandomLinkedList next;
