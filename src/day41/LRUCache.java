@@ -164,6 +164,7 @@ public class LRUCache {
             // case 1: if it is the first node
             if(head == null){
                 head = node;
+                tail = node;
             } else {
                 node.next = head;
                 head.prev = node;

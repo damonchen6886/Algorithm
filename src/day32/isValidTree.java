@@ -77,7 +77,7 @@ public class isValidTree {
         // convert to adjacent list from matrix
         List<List<Integer>> adjList = new ArrayList<>(n);
         // init the graph
-        for(int i = 0; i < edges.length; i++){
+        for(int i = 0; i < n; i++){
             adjList.add(i, new ArrayList<Integer>());
         }
         // connect the edge

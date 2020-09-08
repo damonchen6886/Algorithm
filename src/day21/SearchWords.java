@@ -229,6 +229,7 @@ public class SearchWords {
                 return true;
             }
         }
+        visited[p.x][p.y] = false;
         return false;
     }
 
