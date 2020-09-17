@@ -60,8 +60,8 @@ int ans;
             return true;
         }
         // recursion rule:
-        int leftHeight = getHeight(root);
-        int rightHeight = getHeight(root);
+        int leftHeight = getHeight(root.left);
+        int rightHeight = getHeight(root.right);
         if(Math.abs(leftHeight - rightHeight) > 1){
             return false;
         }
@@ -92,7 +92,7 @@ int ans;
         if(Math.abs(leftCount - rightCount) > 1){
             return -1;
         }
-        return Math.abs(leftCount - rightCount) + 1;
+        return Math.max(leftCount, rightCount) + 1;
 
     }
 
