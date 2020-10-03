@@ -7,9 +7,11 @@ import java.util.List;
 public class ArrayBag implements Bag {
 
     int capacity;
-    List<Object> bag;
+    int index;
+    HashMap<Object,Integer> bag;
+//    ArrayList<Object> m
     public ArrayBag(int size){
-        this.bag = new ArrayList<>();
+        this.bag = new HashMap<>();
         capacity =  size;
 
     };
@@ -17,7 +19,8 @@ public class ArrayBag implements Bag {
     @Override
     public boolean add(Object item) {
         if(this.bag.size() < capacity){
-            return this.bag.add(item);
+            this.bag.put(item,index++);
+            return true;
         }
         // capacity is full;
         return false;
@@ -26,7 +29,7 @@ public class ArrayBag implements Bag {
 
     @Override
     public boolean remove(Object item) {
-        if(!this.bag.remove(item)){
+        if(this.bag.remove(item) == null){
             System.out.println(item + " not found!");
             return false;
         }
@@ -37,13 +40,20 @@ public class ArrayBag implements Bag {
 
     @Override
     public boolean contains(Object item) {
-        for(int i = 0 ; i < bag.size();i++){
-            if(this.bag.get(i).equals(item)){
-                return true;
+        return this.bag.containsKey(item);
+    }
+
+    @Override
+    public boolean containsAll(Bag other) {
+        for(Object key : ((ArrayBag) other).bag.keySet()){
+            if(!this.bag.containsKey(key)){
+                return false;
             }
         }
-        return false;
+        return true;
+
     }
+
 
     @Override
     public int numItems() {
@@ -59,24 +69,10 @@ public class ArrayBag implements Bag {
     public Object[] toArray() {
         int size = this.bag.size();
         Object[] arr = new Object[this.bag.size()];
-        for(int i = 0; i < size;i++){
-            arr[i]  = this.bag.get(i);
+        for(Object key: this.bag.keySet()){
+            arr[--size]  = key;
         }
         return arr;
-    }
-
-
-    public boolean containsAll(ArrayBag b){
-        HashMap<Integer, Object> bagMap = new HashMap<>();
-        for(int i = 0; i< this.bag.size();i++){
-            bagMap.put(i,this.bag.get(i));
-        }
-        for(int i= 0; i < b.bag.size();i++){
-            if(!bagMap.containsValue(b.bag.get(i))){
-                return false;
-            }
-        }
-        return true;
     }
 
 }

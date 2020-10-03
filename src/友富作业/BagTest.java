@@ -1,5 +1,6 @@
 package 友富作业;
 
+import java.util.Iterator;
 /**
  * @author psychocoder
  */
@@ -33,13 +34,13 @@ public class BagTest {
         /**
          * Insert some more values.
          */
-        System.out.println("\nAdding1 4 elements");
+        System.out.println("\nAdding 4 elements");
         bag.add(142);
         bag.add(12);
         bag.add(19);
         bag.add(131);
         printBag(bag);
-       
+
         // Remove element
         int key=17;
         System.out.println("\nRemoving "+key);
@@ -48,16 +49,16 @@ public class BagTest {
         key=12;
         System.out.println("\nRemoving "+key);
         bag.remove(key);
-            
+
         printBag(bag);
 
         System.out.println("\nNew bag");
         ArrayBag newBag = new ArrayBag(initSize);
         newBag.add(1);
         newBag.add(19);
-        newBag.add(12);        
+        newBag.add(12);
         printBag(newBag);
-        
+
         if (bag.containsAll(newBag))
             System.out.println("Bag contains all elements of newBag");
         else
@@ -68,9 +69,9 @@ public class BagTest {
         if (bag.containsAll(newBag))
             System.out.println("Bag contains all elements of newBag");
         else
-            System.out.println("Bag does not contain all elements of newBag");   
+            System.out.println("Bag does not contain all elements of newBag");
     }
-    
+
     public static void printBag(ArrayBag bag)
     {
         System.out.println("Number of elements in the bag : "
