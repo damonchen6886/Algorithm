@@ -12,7 +12,7 @@ import java.util.Map;
 //        Example
 //Given matrix:
 //doaf
-//        agai
+//agai
 //dcan
 //and dictionary:
 //// n: average length of each word, m: number of words
