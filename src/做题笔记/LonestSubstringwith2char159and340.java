@@ -2,7 +2,7 @@ package 做题笔记;
 
 import java.util.HashMap;
 
-public class LonestSubstringwith2char159 {
+public class LonestSubstringwith2char159and340 {
     //  用sliding window 的做法
     // 用 HashMap 来记录加进去的char 如果是新的char count++
     // 如果新的char超过了两个 吧头部那个移除掉
@@ -21,6 +21,7 @@ public class LonestSubstringwith2char159 {
             if(map.get(r) == 1){
                 count++;
             }
+            //2 可以替换成K  参考lc：340
             while(count >2){
                 char l = s.charAt(left);
                 map.put(l, map.get(l)-1);
