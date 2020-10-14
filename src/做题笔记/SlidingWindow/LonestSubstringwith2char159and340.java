@@ -1,4 +1,4 @@
-package 做题笔记;
+package 做题笔记.SlidingWindow;
 
 import java.util.HashMap;
 
