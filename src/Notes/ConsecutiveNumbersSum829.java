@@ -1,4 +1,4 @@
-package 做题笔记;
+package Notes;
 
 public class ConsecutiveNumbersSum829 {
 

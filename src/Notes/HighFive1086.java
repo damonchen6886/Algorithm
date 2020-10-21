@@ -1,8 +1,6 @@
-package 做题笔记;
+package Notes;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 
 // 思路： 先sort array 根据 item[i][0] 大小 再根据item[i][1]大小；

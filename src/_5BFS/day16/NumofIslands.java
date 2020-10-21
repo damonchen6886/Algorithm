@@ -20,6 +20,7 @@ public class NumofIslands {
         for(int i = 0; i < line; i++){
             for(int j = 0; j < column; j++){
                 if(island[i][j] == 1){
+                    islands++;
                     queue.offer(new Point(i,j));
                     while(!queue.isEmpty()){
                         Point p = queue.poll();

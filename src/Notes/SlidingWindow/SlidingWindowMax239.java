@@ -1,4 +1,4 @@
-package 做题笔记.SlidingWindow;
+package Notes.SlidingWindow;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
