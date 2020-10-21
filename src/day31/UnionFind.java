@@ -12,14 +12,14 @@ public class UnionFind {
         }
     }
 
-    // find, uncompressed
-    private int find(int x){
+    // find, compressed
+        private int find(int x){
         // recursively find you dad
         if(father[x] == x){
             return x;
         }
         // recursive rule
-        return find(father[x]);
+        return father[x] = find(father[x]);
     }
     // connect
     private void connect(int a, int b){
@@ -37,15 +37,16 @@ public class UnionFind {
         return father_a == father_b;
     }
 
-//    // compressed
+//    // uncompressed
 //    private int find(int x){
 //        // recursively find you dad
 //        if(father[x] == x){
 //            return x;
 //        }
 //        // recursive rule
-//        return father[x] = find(father[x]);
+//        return find(father[x]);
 //    }
+
 //  // compressed iterative:
 //public int compress_find(int x){
 //

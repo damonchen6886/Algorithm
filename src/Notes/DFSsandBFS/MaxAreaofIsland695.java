@@ -49,4 +49,33 @@ public class MaxAreaofIsland695 {
             this.y = y;
         }
     }
+
+    // dfs:
+    int[][] direction = new int[][]{{1,0},{-1,0},{0,-1},{0,1}};
+    public int maxAreaOfIsland2(int[][] grid) {
+        int result = 0;
+        int column = grid.length;
+        int row = grid[0].length;
+        for(int  i = 0; i < column; i++){
+            for(int j  =0; j < row; j++){
+                if(grid[i][j] == 1){
+                    int curMax[] = new int[]{0};
+                    dfs(grid, i, j, column, row, curMax);
+                    result = Math.max(result, curMax[0]);
+                }
+            }
+        }
+        return result;
+    }
+
+    public void dfs(int[][] grid, int x, int y, int column, int row, int[] curMax){
+        if(x< 0 || x >= column || y < 0 || y >= row|| grid[x][y] != 1){
+            return;
+        }
+        grid[x][y] = 0;
+        curMax[0]++;
+        for(int[] dir: direction){
+            dfs(grid,x+dir[0],y+dir[1],column,row,curMax);
+        }
+    }
 }
