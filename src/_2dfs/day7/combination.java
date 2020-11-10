@@ -77,7 +77,7 @@ public class combination {
 
     public static void main(String[] args) {
         System.out.println("Hello, world!");
-        System.out.println(combination(4,2));
+        System.out.println(combination(5,2));
         System.out.println(combine(4,2));
     }
 
