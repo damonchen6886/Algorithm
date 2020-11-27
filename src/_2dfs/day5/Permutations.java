@@ -189,10 +189,62 @@ public class Permutations {
         }
     }
 
+    // duplicates:
+
+    public static List<List<Integer>> permutationDup1(int[] array){
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if(array == null || array.length == 0) return result;
+        // parsing parameter: 1. given array, 2. current answer 3 result, 4, level(for base case)
+        List<Integer> cur = new ArrayList<Integer>();
+        int level = 0;
+        dfsDup1(array, result,  cur, level);
+        return result;
+    }
+
+
+    private static void dfsDup1(int[] array, List<List<Integer>> result, List<Integer> cur,int level ){
+        // base case:
+        if(cur.size() == array.length){
+            result.add(new ArrayList<Integer>(cur));
+            return;
+        }
+        for(int i = 0; i < array.length; i++){
+            cur.add(array[i]);
+            dfsDup1(array, result, cur, level);
+            cur.remove(cur.size()-1);
+        }
+    }
+
+
+    public static List<List<Integer>> permutationDup2(int[] array){
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        if(array == null || array.length == 0) return result;
+        // parsing parameter: 1. given array, 2. current answer 3 result, 4, level(for base case)
+        List<Integer> cur = new ArrayList<Integer>();
+        int level = 0;
+        dfsDup2(array, result,  cur, level);
+        return result;
+    }
+
+
+    private static void dfsDup2(int[] array, List<List<Integer>> result, List<Integer> cur,int level ){
+        // base case:
+        if(cur.size() == array.length){
+            result.add(new ArrayList<Integer>(cur));
+            return;
+        }
+        for(int i = level; i < array.length; i++){
+            cur.add(array[i]);
+            dfsDup2(array, result, cur, level);
+            cur.remove(cur.size()-1);
+        }
+    }
+
 
     public static void main(String[] args) {
         System.out.println("Hello, world!");
         int[] array = new int[]{1,2,3};
+
         List<List<Integer>> result = permutation(array);
         System.out.println("permutation1 = " + result);
 
@@ -211,6 +263,13 @@ public class Permutations {
         List<List<Integer>> result6 = permutation6(array);
         System.out.println("permutation6 = " + result6);
 
+        //--------------------- dup
+        int[] arr = new int[]{1,1,2};
+        List<List<Integer>> resultdup1 = permutationDup1(arr);
+        System.out.println("permutationdup = " + resultdup1);
+
+        List<List<Integer>> resultdup2 = permutationDup2(arr);
+        System.out.println("permutationdup2 = " + resultdup2);
 
     }
 
