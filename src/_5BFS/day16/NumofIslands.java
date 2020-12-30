@@ -1,8 +1,6 @@
 package _5BFS.day16;
 
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class NumofIslands {
 
@@ -106,6 +104,16 @@ public class NumofIslands {
         for(int[] dir : dirs){
             dfs(island, curX + dir[0], curY + dir[1], m, n);
         }
+
+//        island[curX][curY] = '0';
+//        for(int[] d : dirs){
+//            int x = curX+ d[0];
+//            int y = curY +d[1];
+//            if(x >= 0 && x < row && y >= 0 && y < column && grid[x][y] == '1'){
+//                dfs(grid, x,y, m, n);
+//            }
+//        }
+//        return;
     }
 
 
