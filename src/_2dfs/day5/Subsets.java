@@ -41,6 +41,37 @@ public class Subsets {
         sb.deleteCharAt(sb.length() - 1);
     }
 
+//			                               []
+//             1                    /       |      \
+//                                [1]      [2]      [3]
+//             2               /      \     |
+//                        [2]       [3]    [3]
+//             3          /
+//                      [3]
+
+    //[[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]
+    public static List<List<Integer>> susbets2(int[] ns){
+        if(ns == null || ns.length ==0 ){
+            return null;
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(ns, result,0, new ArrayList<>());
+        return result;
+
+    }
+
+    private static void dfs(int[] ns, List<List<Integer>> result, int level, List<Integer> cur){
+        result.add(new ArrayList<>(cur));
+        for(int i=  level; i < ns.length;i++){
+            cur.add(ns[i]);
+            dfs(ns, result, i+1, cur);
+            cur.remove(cur.size()-1);
+        }
+    }
+
+
+
+
     // if contains duplicates:
     // [1,1,2,3,]
     // expect: [ [1][2][3][11][12][13][23][112][113][123][1123][] ]
@@ -89,6 +120,8 @@ public class Subsets {
 
 
 
+
+
     public static void main(String[] args) {
         System.out.println("Hello, world!");
         int[] array = new int[]{1,1,2,3};
@@ -96,6 +129,9 @@ public class Subsets {
 
         System.out.println(result);
     }
+
+
+
 
 
 }
