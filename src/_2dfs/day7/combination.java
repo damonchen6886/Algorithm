@@ -29,7 +29,6 @@ public class combination {
 
         }
 
-
         dfs(arr, n, k, result, cur);
 
         return result;
@@ -73,12 +72,41 @@ public class combination {
         }
     }
 
+     // find all possible combinations
+    public static List<List<Integer>> combination2(int[] ns, int target){
+        if(ns == null || ns.length ==0){
+            return new ArrayList<>();
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        dfs(ns, target, result, 0, new ArrayList<>(), 0);
+        return result;
+    }
+    private static void dfs(int[] ns, int target, List<List<Integer>> result, int sum, List<Integer> cur, int level){
+        if(sum > target){
+            return;
+        }
+        if(sum == target){
+            result.add(new ArrayList<>(cur));
+            return;
+        }
+//        0/level/  任何元素用无限次/用自己和自己后面的元素
+        for(int i = level; i < ns.length;i++){
+            cur.add(ns[i]);
+            //   i/i+1  用自己和自己后面的元素/ 只看自己身后的元素
+            dfs(ns, target, result, sum+ns[i],cur, i);
+
+            cur.remove(cur.size()-1);
+        }
+    }
+
+
 
 
     public static void main(String[] args) {
         System.out.println("Hello, world!");
-        System.out.println(combination(5,2));
-        System.out.println(combine(4,2));
+        System.out.println(combination(7,3));
+        System.out.println(combine(7,3));
+        System.out.println(combination2(new int[]{1,2,3,4},4));
     }
 
 }

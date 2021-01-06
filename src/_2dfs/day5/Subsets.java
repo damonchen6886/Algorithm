@@ -63,6 +63,11 @@ public class Subsets {
     private static void dfs(int[] ns, List<List<Integer>> result, int level, List<Integer> cur){
         result.add(new ArrayList<>(cur));
         for(int i=  level; i < ns.length;i++){
+            //-------------------------------
+//            if(i > level && ns[i] == ns[i-1]){
+////                continue;
+////            }
+            //-----------------
             cur.add(ns[i]);
             dfs(ns, result, i+1, cur);
             cur.remove(cur.size()-1);
@@ -126,8 +131,10 @@ public class Subsets {
         System.out.println("Hello, world!");
         int[] array = new int[]{1,1,2,3};
         List<List<Integer>> result = subSetDuplicate(array);
-
-        System.out.println(result);
+        int[] array2 = new int[]{1,2,3,4,5,6,7,8,9,10};
+        List<List<Integer>> result2 = susbets2(array2);
+        System.out.println(result2.size());
+//        System.out.println(result);
     }
 
 

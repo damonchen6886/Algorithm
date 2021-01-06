@@ -44,13 +44,28 @@ public class Permutations {
         }
         for(int i = 0; i < array.length; i++){
             if(!used[i]){
-                // deside to use array[i]
+
+//                      [2,2,3]
+//                          []
+//                    /     |       \
+//                   [2]    [2]  --       []
+//                  /\     / \    |       / \
+//                 [2][3]  [2][3]  |        [1] []
+//                                 ^
+                //!used[i-1] deduplication 意思： dfs 图 横着的的时候 前者没访问
+//              中间的2 是要被deduplicate的部分  但是 为了保证不会影响到 左下角的[2], 必须的用!used[i-1] 来判断
+//              因为dfs未回弹时 used[i] 应该是true， 只有在dfs回弹后 reset used[i]为false
+//                if(i > 0 && array[i] == array[i-1] && !used[i-1]) continue;
                 used[i] = true;
                 cur.add(array[i]);
                 dfs(array, result, cur,used);
                 // handle backtracking problem
                 cur.remove(cur.size()-1);
                 used[i] = false;
+                // 在后面deduplicate不用考虑 visited的问题， 而且效率上更高
+//              while(i < ns.length - 1 && ns[i + 1] == ns[i]){
+//                   i++;
+//              }
             }
         }
     }
@@ -243,7 +258,7 @@ public class Permutations {
 
     public static void main(String[] args) {
         System.out.println("Hello, world!");
-        int[] array = new int[]{1,2,3};
+        int[] array = new int[]{1,2,2,3};
 
         List<List<Integer>> result = permutation(array);
         System.out.println("permutation1 = " + result);
