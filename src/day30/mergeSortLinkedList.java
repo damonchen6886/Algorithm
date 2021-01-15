@@ -2,13 +2,13 @@ package day30;
 
 public class mergeSortLinkedList {
     public  ListNode mregeSortLinkedList(ListNode head){
-        if(head.next == null){
+        if(head == null || head.next == null){
             return null;
         }
         ListNode mid = findMid(head);
         ListNode left = mregeSortLinkedList(head);
         ListNode right= mregeSortLinkedList(mid);
-        mid.next = null;
+//        mid.next = null;
         return merge(left, right);
     }
     public ListNode merge(ListNode left, ListNode right){
@@ -35,12 +35,15 @@ public class mergeSortLinkedList {
     }
 
     private ListNode findMid(ListNode head){
+        ListNode prev = null;
         ListNode fast = head;
         ListNode slow = head;
         while(fast != null && fast.next != null){
+            prev = slow;
             fast = fast.next.next;
             slow = slow.next;
         }
+        prev.next = null;
         return slow;
     }
 
