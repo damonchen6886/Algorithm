@@ -56,28 +56,39 @@ public class Backpack {
     }
 
     // pure dfs approach
+    int r = 0;
     public int backpackDFS(int[] array, int size){
-        int result = 0;
+//        int result = 0;
         if(array == null || array.length == 0){
             return 0;
         }
 
         Arrays.sort(array);
-        result = dfs(array, size, 0, 0);
-        return result;
+        dfs(array, size, 0, 0);
+        return r;
     }
-    private int dfs(int[] array, int size, int start, int curValue){
+    private void dfs(int[] array, int size, int level, int curValue){
         // base case
         if(curValue > size){
-            return 0;
+            return;
         }
-        int result = Integer.MIN_VALUE;
-        for(int i = start; i < array.length; i++){
+        if(level ==array.length){
+            r = Math.max(r, curValue);
+        }
+//        int result = Integer.MIN_VALUE;
+        for(int i = level; i <array.length; i++){
             curValue += array[i];
-            result = Math.max(result, dfs(array, size, start, curValue));
+            dfs(array, size, level+1, curValue);
             curValue -=array[i];
         }
-        return result;
+
+    }
+
+    public static void main(String[] args) {
+        int[] arr = new int[]{7,10,19,37,30,11,35,16,49};
+        int max = 49;
+        Backpack b = new Backpack();
+        System.out.println(b.backPack(arr, max));
     }
 
 }
