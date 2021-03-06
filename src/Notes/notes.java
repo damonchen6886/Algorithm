@@ -16,7 +16,7 @@ public class notes {
         }
         List<Map.Entry<Integer,Integer>> list = new ArrayList<>(map.entrySet());
             Collections.sort(list, (a, b) ->{
-            return a.getValue() != b.getValue() ? a.getValue().compareTo(b.getValue()) : b.getKey().compareTo(a.getKey());
+            return !a.getValue().equals(b.getValue()) ? a.getValue().compareTo(b.getValue()) : b.getKey().compareTo(a.getKey());
         });
     }
 ;

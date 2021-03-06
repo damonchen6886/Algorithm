@@ -5,19 +5,18 @@ import java.util.*;
 public class NumofIslands {
 
     public int numIsland(int[][] island){
+        int[][] direction = new int[][]{{1,0},{0,1},{0,-1},{-1,0}};
         if(island == null || island.length == 0 || island[0].length == 0){
             return 0;
         }
         int islands = 0;
-        int[][] direction  = new int[][]{
-                {-1,0},{0,1},{1,0},{-1,0}
-        };
-        int line = island[0].length;
-        int column = island.length;
+
+        int line = island.length;
+        int column = island[0].length;
         Deque<Point> queue = new LinkedList<>();
         for(int i = 0; i < line; i++){
             for(int j = 0; j < column; j++){
-                if(island[i][j] == 1){
+                if(island[i][j] == '1'){
                     islands++;
                     queue.offer(new Point(i,j));
                     while(!queue.isEmpty()){
@@ -25,9 +24,8 @@ public class NumofIslands {
                         for(int z = 0; z < direction.length; z++){
                             int x= p.x +direction[z][0];
                             int y = p.y + direction[z][1];
-
-                            if(x < 0 || x > line -1||y<0 || y> column-1|| direction[x][y] ==0 && direction[x][y+1] == 1){
-                                direction[x][y] = 0;
+                            if(x >=0 && x < line && y>=0 && y< column && island[x][y] == '1' ){
+                                island[x][y] = '0';
                                 queue.offer(new Point(x,y));
                             }
                         }
@@ -39,7 +37,6 @@ public class NumofIslands {
         }
 
         return islands;
-
 
     }
 

@@ -21,7 +21,7 @@ public class Backpack {
         for(int i = 1; i <= array.length; i++){
             for(int j = 1; j <= size; j++){
                 if(j >= array[i-1]){
-                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-array[i-1]] + array[i]-1);
+                    dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j-array[i-1]] + array[i-1]);
                 } else {
                     dp[i][j] = dp[i-1][j];
                 }
@@ -30,29 +30,44 @@ public class Backpack {
         return dp[array.length][size];
     }
 
+    public int backPack2(int[] array, int size){
+//        int[][] dp = new int[array.length + 1][size + 1];
+        int[] dp = new int[size+1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = size; j > 0; j--) {
+                if (j >= array[i]) {
+                    dp[j] = Math.max(dp[j], dp[j-array[i]] + array[i]);
+                }
+            }
+        }
+        return dp[size];
+
+    }
+
     // Memory search
-    int result = Integer.MIN_VALUE;
+    int min = Integer.MAX_VALUE;
     public int memBackPack(int[] array, int size){
         Arrays.sort(array);
 
-        int[] mem = new int[array.length];
-        memSearch(size, array, 0, mem);
-        return result;
+        int[] mem = new int[size+1];
+        int result = memSearch(size, array, 0, mem);
+        return size-min;
     }
-    private int memSearch(int size, int[] array, int start, int[] mem){
+    private int memSearch(int target, int[] array, int index, int[] mem){
         // base case
-        if(mem[start] > 0){
-            return mem[start];
+        if(mem[target] > 0){
+            return mem[target];
         }
         //
-        int result = 0;
-        for(int i = start; i < array.length; i++){
-            if(size - array[i] >= 0){
-                result = Math.max(result, memSearch(size - array[i], array, start + 1, mem));
+        int res = target;
+        for(int i = index; i < array.length; i++){
+            if(target - array[i] >= 0){
+                res =  memSearch(target - array[i], array, i + 1, mem);
             }
         }
-        mem[start] = result;
-        return result;
+        mem[target] = res;
+        min = Math.min(res,min);
+        return min;
     }
 
     // pure dfs approach
@@ -89,6 +104,7 @@ public class Backpack {
         int max = 49;
         Backpack b = new Backpack();
         System.out.println(b.backPack(arr, max));
+        System.out.println(b.memBackPack(arr, max));
     }
 
 }
