@@ -1,4 +1,4 @@
-package day23;
+package DynamicProgramming;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package day36;
+package BitManipulation;
 
 public class bit {
     //Building Block

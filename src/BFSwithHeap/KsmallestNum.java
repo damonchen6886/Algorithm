@@ -1,4 +1,4 @@
-package _6BFSwithHeap.day17;
+package BFSwithHeap;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

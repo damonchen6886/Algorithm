@@ -1,4 +1,4 @@
-package day32;
+package LinkedList;
 
 import java.util.*;
 

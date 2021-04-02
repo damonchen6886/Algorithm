@@ -1,4 +1,4 @@
-package _3BinaryTree.day10;
+package BinaryTree;
 
 
 

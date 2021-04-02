@@ -1,4 +1,4 @@
-package _3BinaryTree.day11;
+package BinaryTree;
 
 
 import java.util.List;

@@ -1,10 +1,9 @@
-package day44;
+package Trie;
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 // insert all these words to the prefix tree
 // [asd, asde, cesa, asdrts]
 //Question

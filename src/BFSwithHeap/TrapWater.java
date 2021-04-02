@@ -1,4 +1,4 @@
-package _6BFSwithHeap.day18;
+package BFSwithHeap;
 
 public class TrapWater {
     public int maxTrapped(int[] array){

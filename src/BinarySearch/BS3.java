@@ -1,4 +1,4 @@
-package BinarySearch.day1;
+package BinarySearch;
 //1.2 Given a target integer T and an integer array A sorted in ascending order,
 // find the index of the first occurrence of T in A or return -1 if there is no such index. （follow up of Q1）
 //        Assumptions
@@ -10,7 +10,7 @@ package BinarySearch.day1;
 //        Corner Cases
 //        What if A is null or A of zero length? We should return -1 in this case.
 
-public class BST3 {
+public class BS3 {
 
     int bst3(int[] array, int target){
         if(array == null || array.length ==0){
@@ -65,7 +65,7 @@ public class BST3 {
     }
 
     public static void main(String[] args) {
-        BST3 test = new BST3();
+        BS3 test = new BS3();
         int[] A = new int[]{1, 2, 3};
         int[] B = new int[]{2, 2};
         int[] C = new int[]{1, 3,3 , 4};

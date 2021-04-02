@@ -1,4 +1,4 @@
-package day23;
+package DynamicProgramming;
 
 public class MinStepTransform {
 

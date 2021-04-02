@@ -1,4 +1,4 @@
-package day32;
+package LinkedList;
 
 public class findStartCycle {
     public ListNode detectCycle(ListNode head){

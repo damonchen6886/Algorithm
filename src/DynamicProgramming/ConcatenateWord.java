@@ -1,4 +1,4 @@
-package day23;
+package DynamicProgramming;
 
 import java.util.HashSet;
 import java.util.Set;

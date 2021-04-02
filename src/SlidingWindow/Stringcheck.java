@@ -1,4 +1,4 @@
-package SlidingWindow.day45;
+package SlidingWindow;
 
 import java.util.ArrayList;
 import java.util.HashMap;

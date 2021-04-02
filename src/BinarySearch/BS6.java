@@ -1,4 +1,4 @@
-package BinarySearch.day2;
+package BinarySearch;
 
 // 1.5 Given a target integer T, a non-negative integer K and an integer array A sorted in ascending order, find the K closest numbers to T in A. If there is a tie, the smaller elements are always preferred.
 // Assumptions

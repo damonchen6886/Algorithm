@@ -1,4 +1,4 @@
-package day21;
+package BFS;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

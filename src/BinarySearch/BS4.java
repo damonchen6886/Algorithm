@@ -1,4 +1,4 @@
-package BinarySearch.day1;
+package BinarySearch;
 
 //1.3 Given a target integer T and an integer array A sorted in ascending order,
 // find the index of the last occurrence of T in A or return -1 if there is no such index.
@@ -12,7 +12,7 @@ package BinarySearch.day1;
 //        What if A is null or A is array of zero length? We should return -1 in this case.
 
 
-public class BST4 {
+public class BS4 {
 
     int bst4(int[] array, int target){
         if(array == null || array.length ==0){
@@ -45,7 +45,7 @@ public class BST4 {
     }
 
     public static void main(String[] args) {
-        BST4 test = new BST4();
+        BS4 test = new BS4();
         int[] A = new int[]{1, 2, 3};
         int[] B = new int[]{1, 4, 6};
         int[] C = new int[]{1, 3,3 , 4};

@@ -1,4 +1,4 @@
-package day33;
+package LinkedList;
 
 public class ReverseLinkedlist {
     //

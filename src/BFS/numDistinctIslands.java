@@ -1,4 +1,4 @@
-package _5BFS.day16;
+package BFS;
 
 import java.util.HashSet;
 import java.util.Set;

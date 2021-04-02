@@ -1,4 +1,4 @@
-package _3BinaryTree.day9;
+package BinaryTree;
 
 public class TreeHeight {
 

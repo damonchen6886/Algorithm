@@ -1,4 +1,4 @@
-package BitManipulation.day37;
+package BitManipulation;
 
 public class findExtraElement {
     //Given k * n + 1 numbers, every numbers occurs twice except one, find it.

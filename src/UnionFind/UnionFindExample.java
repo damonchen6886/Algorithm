@@ -1,4 +1,4 @@
-package day31;
+package UnionFind;
 
 public class UnionFindExample {
     //Example 1:

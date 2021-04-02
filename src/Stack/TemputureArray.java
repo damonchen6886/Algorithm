@@ -1,4 +1,4 @@
-package _4Stack.day13;
+package Stack;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

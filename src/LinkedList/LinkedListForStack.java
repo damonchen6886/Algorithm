@@ -1,4 +1,4 @@
-package day34;
+package LinkedList;
 
 public class LinkedListForStack {
     //Write an algorithm to implement Stack using Linked List.

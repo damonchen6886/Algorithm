@@ -1,4 +1,4 @@
-package day36;
+package BitManipulation;
 
 import java.util.HashSet;
 

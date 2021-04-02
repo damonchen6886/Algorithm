@@ -1,4 +1,4 @@
-package _5BFS.day15;
+package BFS;
 
 import java.util.LinkedList;
 import java.util.Queue;

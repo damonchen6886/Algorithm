@@ -1,4 +1,4 @@
-package BinaryTree.day38;
+package BinaryTree;
 
 public class flipBST {
     //*	Given a binary tree where all the right nodes are either leaf nodes with a sibling (a left node that shares the same parent node)

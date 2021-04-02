@@ -1,4 +1,4 @@
-package day37;
+package BinaryTree;
 
 public class BuildTreeWithPreorderAndInorder {
     //For example, given

@@ -1,4 +1,4 @@
-package _6BFSwithHeap.day18;
+package BFSwithHeap;
 
 import java.util.*;
 

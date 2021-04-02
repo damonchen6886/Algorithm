@@ -1,4 +1,4 @@
-package day42;
+package Random;
 
 public class random5for7 {
 

@@ -1,4 +1,4 @@
-package BinaryTree.day38;
+package BinaryTree;
 
 public class ConvertArraytoTree {
     //* Description:

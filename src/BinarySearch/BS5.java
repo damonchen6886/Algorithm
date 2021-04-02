@@ -1,4 +1,4 @@
-package BinarySearch.day1;
+package BinarySearch;
 
 
 //1.4 Given a 2D matrix that contains integers only, which each row is sorted in an ascending order. The first element of next row is larger than (or equal to) the last element of previous row.
@@ -13,7 +13,7 @@ package BinarySearch.day1;
 
 import java.util.Arrays;
 
-public class BST5 {
+public class BS5 {
 
 
     int[] bst5(int[][] array, int target){
@@ -43,7 +43,7 @@ public class BST5 {
         }
 
     public static void main(String[] args) {
-        BST5 test = new BST5();
+        BS5 test = new BS5();
         int[][] matrix = { {1, 2, 3}, {4, 5, 7}, {8, 9, 10} };
         System.out.println("expect: {1,2} " + Arrays.toString(test.bst5(matrix,7)));
         System.out.println("expect: {-1,-1} " + Arrays.toString(test.bst5(matrix,6)));

@@ -1,4 +1,4 @@
-package day41;
+package LFULRU;
 
 import java.util.HashMap;
 import java.util.Map;

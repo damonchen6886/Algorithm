@@ -1,6 +1,4 @@
-package day34;
-
-import day33.ReverseLinkedlist;
+package LinkedList;
 
 public class removeNthNode {
     ////

@@ -1,4 +1,4 @@
-package BinarySearch.day1;
+package BinarySearch;
 
 // 1. Given a target integer T and an integer array A sorted in ascending order, find the index i such that A[i] == T or return -1 if there is no such index.
 // Assumptions
@@ -11,7 +11,7 @@ package BinarySearch.day1;
 // What if A is null or A is of zero length? We should return -1 in this case.
 
 
-public class BST1 {
+public class BS1 {
 
 
 
@@ -40,7 +40,7 @@ public class BST1 {
 
 
     public static void main(String[] args) {
-        BST1 test = new BST1();
+        BS1 test = new BS1();
         int[] A = new int[]{1, 2, 3, 4, 5};
         int[] B = new int[]{1, 2, 3, 4, 5};
         int[] C = new int[]{1, 2, 2, 2, 3, 4};

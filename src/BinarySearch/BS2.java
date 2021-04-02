@@ -1,5 +1,5 @@
 
-package BinarySearch.day1;
+package BinarySearch;
 
 //1.1 Given a target integer T and an integer array A sorted in ascending order,
 // find the index i in A such that A[i] is closest to T.(follow up of Q1)
@@ -13,7 +13,7 @@ package BinarySearch.day1;
 //        Corner Cases
 //        What if A is null or A is of zero length? We should return -1 in this case.
 
-public class BST2 {
+public class BS2 {
 
     // step 1: sorted?
     //
@@ -71,7 +71,7 @@ public class BST2 {
 
 
     public static void main(String[] args) {
-        BST2 test = new BST2();
+        BS2 test = new BS2();
         int[] A = new int[]{1, 2, 3};
         int[] B = new int[]{1, 4, 6};
         int[] C = new int[]{1, 3,3 , 4};

@@ -1,4 +1,4 @@
-package day43;
+package MinSpanningTree;
 
 import java.util.*;
 //Sep/10/2020  leetcode 1135
