@@ -1,7 +1,8 @@
 package DynamicProgramming;
 
 public class backpack2 {
-    //Given n items with size Ai and value Vi, and a backpack with size m. What's the maximum value can you put into the backpack?
+    //Given n items with size Ai and value Vi, and a backpack with size m. What's the maximum value
+    // can you put into the backpack?
     //Notice
     //You cannot divide item into small pieces and the total size of items you choose should smaller or equal to m.
     //Example
