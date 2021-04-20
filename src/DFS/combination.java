@@ -106,7 +106,7 @@ public class combination {
         System.out.println("Hello, world!");
         System.out.println(combination(7,3));
         System.out.println(combine(7,3));
-        System.out.println(combination2(new int[]{1,2,3,4},4));
+        System.out.println(combination2(new int[]{1,2,3},4));
     }
 
 }
