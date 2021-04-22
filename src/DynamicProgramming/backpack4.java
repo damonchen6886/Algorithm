@@ -94,7 +94,7 @@ public class backpack4 {
 
     public static void main(String[] args) {
         backpack4 b  = new backpack4();
-        System.out.println(b.backPack4(new int[]{1,2,3}, 32));
+        System.out.println(b.backpack4RollingArr(new int[]{1,2,3}, 4));
     }
 
 
