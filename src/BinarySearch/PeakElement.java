@@ -72,7 +72,7 @@ public class PeakElement {
 
 
 // conclusion: Avoid infinity loop while using binary search: when to use
-//    Situation 1: while(left<=right)  left =mid +1 or right =mid -1
+//    Situation 1: while(left<=right)  left =mid +1 and right =mid -1
 //    Situation 2: while(left < right -1)  left = mid or right = mid
 // when the current search value is needed in next search or current search value might be the final answer, Go situation 1;
 // Sure that the current search value is not needed and wont be the final answer. Go situation 2

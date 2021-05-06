@@ -66,11 +66,7 @@ public class LowestCommonAncestor {
             }
 
         }
-
-
         return helper2(t1, t2);
-
-
     }
 
     private TreeNode helper2(TreeNode t1, TreeNode t2){

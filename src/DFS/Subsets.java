@@ -133,7 +133,7 @@ public class Subsets {
         List<List<Integer>> result = subSetDuplicate(array);
         int[] array2 = new int[]{1,2,3,4,5,6,7,8,9,10};
         List<List<Integer>> result2 = susbets2(array2);
-        System.out.println(result2.size());
+        System.out.println(result);
 //        System.out.println(result);
     }
 

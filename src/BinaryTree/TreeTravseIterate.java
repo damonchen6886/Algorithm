@@ -23,6 +23,27 @@ public class TreeTravseIterate {
         preOrder(root.right);
     }
 
+    // easy to remember version: simple change the order of root
+    // after 2nd while loop to get difference order of tree
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if(root == null){
+            return result;
+        }
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        while(root != null || !stack.isEmpty()){
+            while(root!= null){
+                stack.push(root);
+                root = root.left;
+            }
+            root =  stack.pop();
+            result.add(root.value);
+            root = root.right;
+        }
+        return result;
+    }
+
+
     // List, Deque
     public List<Integer> preOder2(TreeNode root){
         Deque<TreeNode> stack = new LinkedList<>();

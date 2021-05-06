@@ -17,7 +17,6 @@ public class levelOrderTravsal {
 
     // Level Order traverse
     public List<List<Integer>> levelOrderTrverse(TreeNode t){
-
         if(t == null){
             return null;
         }
@@ -29,11 +28,8 @@ public class levelOrderTravsal {
 
     private void dfs(TreeNode root, List<List<Integer>> result, int level){
 
-
         if(level  ==  result.size()){
             result.add(new ArrayList<>());
-
-
         }
         result.get(level).add(root.value);
         if(root.left != null){
@@ -47,6 +43,8 @@ public class levelOrderTravsal {
     }                                //result = [[-5],[2,],[4]]
 
 
+
+    // BFS version
     public List<List<Integer>> levelOrderdfs2(TreeNode root){
         List<List<Integer>> result = new ArrayList<>();
         dfs2(root, 0, result);
