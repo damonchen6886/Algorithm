@@ -75,10 +75,53 @@ public class mergeSort {
         return array;
     }
 
+
+
+    public void ms(int[] arr){
+        if(arr.length == 0){
+            return;
+        }
+        ms(arr,0,arr.length-1);
+
+    }
+    public void ms(int[] arr, int start, int end){
+        if(start >=end){
+            return;
+        }
+        int mid = start+ (end-start)/2;
+        ms(arr, start, mid);
+        ms(arr,mid+1,end);
+        mgsort(arr, start, mid, end);
+    }
+
+
+
+    private void mgsort(int[] arr, int start, int mid, int end){
+        int first  =start;
+        int last  =mid+1;
+        int i =0;
+        int[] temp = new int[end-start+1];
+        while(first <= mid && last <=end){
+            temp[i++] = arr[first]< arr[last] ? arr[first++] : arr[last++];
+        }
+        while(first <= mid){
+            temp[i++]  =arr[first++];
+        }
+        while(last <= end){
+            temp[i++] = arr[last++];
+        }
+        i  =0;
+        while(start <= end){
+            arr[start++] = temp[i++];
+        }
+    }
+
     public static void main(String[] args) {
         int[] a = new int[]{3,2,1,4,8,6,7};
         mergeSort m = new mergeSort();
 //        System.out.println(Arrays.toString(m.mergeSort(a)));
-        System.out.println(Arrays.toString(m.mergeSort2(a)));
+//        System.out.println(Arrays.toString(m.mergeSort2(a)));
+        m.ms(a);
+        System.out.println(Arrays.toString(a));
     }
 }

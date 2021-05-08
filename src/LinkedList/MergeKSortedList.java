@@ -68,7 +68,7 @@ public class MergeKSortedList {
         if(lists == null || lists.size() == 0){
             return null;
         }
-        Queue<ListNode> pq = new PriorityQueue<ListNode>(lists.size(), (a, b) -> a.value < b.value ? a.value : a.value == b.value ? a.value : b.value);
+        Queue<ListNode> pq = new PriorityQueue<ListNode>(lists.size(), (a, b) -> Math.min(a.value, b.value));
         for(int i = 0; i < lists.size(); i++){
             if(lists.get(i) != null){
                 pq.offer(lists.get(i));
