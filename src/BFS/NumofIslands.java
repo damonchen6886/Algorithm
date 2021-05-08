@@ -124,8 +124,6 @@ public class NumofIslands {
         }
     }
 
-
-
 //-------------------------------------------
 class UnionFind {
 
@@ -181,7 +179,7 @@ class UnionFind {
         UnionFind uf = new UnionFind(n*m);
 
         for(int i = 0; i < m; i++){
-            for(int j = 0; j < m; j++){
+            for(int j = 0; j < n; j++){
                 if(grid[i][j] == 1){
                     total++;
                 }
@@ -214,6 +212,73 @@ class UnionFind {
     }
 
 
+///////////////////////////
+
+    // uf2 solution:
+    class Solution {
+        public int numIslands(char[][] grid) {
+            int[][] directions = new int[][]{{1,0},{0,1},{0,-1},{-1,0}};
+            int result = 0;
+            int m = grid.length;
+            int n = grid[0].length;
+            int total = 0;
+            UnionFind uf = new UnionFind(m*n);
+            for(int i = 0; i < m;i++){
+                for(int j = 0; j < n;j++){
+                    if(grid[i][j] == '1'){
+                        total++;
+                    }
+                }
+            }
+            uf.setCount(total);
+            for(int i = 0; i < m;i++){
+                for(int j =0; j < n;j++){
+                    if(grid[i][j] == '1'){
+                        for(int[] dir: directions){
+                            int x = i+dir[0];
+                            int y = j +dir[1];
+                            if(x >=0 && x<m && y>= 0 && y<n && grid[x][y] =='1'){
+                                uf.connect(i*n+j, x*n+y);
+                            }
+                        }
+                    }
+                }
+            }
+            return uf.query();
+        }
+
+        public class UnionFind{
+            private int[] father = null;
+            int count;
+            public UnionFind(int n){
+                father  = new int[n+1];
+                for(int i = 0; i<=n;i++){
+                    father[i]  =i;
+                }
+            }
+            public int find(int x){
+                if(father[x] == x){
+                    return x;
+                }
+                return father[x] = find(father[x]);
+
+            }
+            public void connect(int a, int b){
+                int father_a  =find(a);
+                int father_b = find(b);
+                if(father_a != father_b){
+                    father[father_a] = father_b;
+                    count--;
+                }
+            }
+            public int query(){
+                return count;
+            }
+            public void setCount(int x){
+                this.count =x;
+            }
+        }
+    }
 
 
 }
