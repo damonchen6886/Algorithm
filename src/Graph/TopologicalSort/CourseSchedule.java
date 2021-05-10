@@ -26,6 +26,7 @@ public class CourseSchedule {
             map.get(pre[i][1]).add(pre[i][0]);
             indegree[pre[i][0]]++;
         }
+        System.out.println(pre.length + " "+ map.size());
         Queue<Integer> q = new ArrayDeque<>();
         for(int i = 0; i< num;i++){
             if(indegree[i] == 0){
@@ -52,6 +53,47 @@ public class CourseSchedule {
         return index == num ? result: new int[0];
 
     }
+
+
+    // map another way:
+    public int[] findOrder2(int num, int[][] pre) {
+        Map<Integer, ArrayList<Integer>> map = new HashMap<>();
+        int[] indegree = new int[num];
+        //如果不加if(arr!= null) 就得让map的长度等于pre的长度避免NPE
+        for(int i = 0; i< num;i++){
+            map.put(i, new ArrayList<>());
+        }
+        for(int i = 0;i < pre.length;i++){
+            map.get(pre[i][1]).add(pre[i][0]);
+            indegree[pre[i][0]]++;
+        }
+        Queue<Integer> q = new ArrayDeque<>();
+        for(int i = 0; i< num;i++){
+            if(indegree[i] == 0){
+                q.offer(i);
+            }
+        }
+        int[] result = new int[num];
+        int index =0;
+        while(!q.isEmpty()){
+            int cur = q.poll();
+            result[index++] = cur;
+            ArrayList<Integer> arr = map.get(cur);
+            for(int i = 0; i< arr.size();i++){
+                int next = arr.get(i);
+                indegree[next]--;
+                if(indegree[next] ==0){
+                    q.offer(next);
+                }
+            }
+        }
+        return index == num ? result: new int[0];
+
+    }
+;
+
+
+
     public static void main(String[] args) {
         CourseSchedule c = new CourseSchedule();
         System.out.println(Arrays.toString(c.findOrder(2, new int[][]{{1, 0}})));

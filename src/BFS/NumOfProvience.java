@@ -38,9 +38,9 @@ public class NumOfProvience {
         public int[] father = null;
         private int size;
         public UnionFind(int n){
-            father =  new int[n];
+            father =  new int[n+1];
             this.size  = n;
-            for(int i = 0; i < n;i++){
+            for(int i = 0; i <= n;i++){
                 father[i] = i;
             }
         }
