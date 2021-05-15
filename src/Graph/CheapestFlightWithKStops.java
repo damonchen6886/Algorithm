@@ -24,8 +24,15 @@ import java.util.*;
 public class CheapestFlightWithKStops {
 
     // bfs 和 heap方法遇到环小数值 和一个大数值的des会很费时间 导致TLE
-    //  1
-    // 2  3 -> 4
+ /*
+                                      0
+                                   /    /\
+                               10 /      \
+                                 /        \  10
+                                \/.        \
+                                 1 -------> 2----------->3
+                                      10.         1000
+*/
     // 比如1->2->3 ->1 循环 weight都为10  3-> 4 weight为1000  如果k很大 就非常花时间 导致TLE
 
     //DFS
@@ -57,8 +64,10 @@ public class CheapestFlightWithKStops {
             dfs(cur[0],dst,k-1,cost+cur[1]);
         }
     }
-    // BFS with pruning
-    public int findCheapestPrice2(int n, int[][] flights, int src, int dst, int k) {
+
+
+    // Dijkstra no visited TLE
+    public int findCheapestPrice4(int n, int[][] flights, int src, int dst, int k) {
         Map<Integer, ArrayList<int[]>> map = new HashMap<>();
         for(int i = 0; i < flights.length;i++){
             map.putIfAbsent(flights[i][0], new ArrayList<>());
@@ -88,6 +97,45 @@ public class CheapestFlightWithKStops {
         }
         return -1;
     }
+
+    // Dijkstra + visited  TLE
+    public int findCheapestPrice2(int n, int[][] flights, int src, int dst, int k) {
+        Map<Integer, ArrayList<int[]>> map = new HashMap<>();
+        for(int i = 0; i < flights.length;i++){
+            map.putIfAbsent(flights[i][0], new ArrayList<>());
+            map.get(flights[i][0]).add(new int[]{flights[i][1],flights[i][2]});
+        }
+//        int count = 0;
+        Set<String> visited = new HashSet<>();
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0]- b[0]);
+        pq.offer(new int[]{0,src,k+1});
+        while(!pq.isEmpty()){
+            int[] cur = pq.remove();
+            int price = cur[0];
+            int city = cur[1];
+            int stop = cur[2];
+            if(city == dst){
+                return price;
+            }
+            visited.add(city +"_"+ stop);
+            if(stop >0 && map.containsKey(city)){
+                ArrayList<int[]> curList = map.get(city);
+                for(int[] next : curList){
+                    if(visited.contains(next[0] +"_"+ (stop-1))){
+                        continue;
+                    }
+//                    int[] add = new int[]{price+next[1],next[0],stop-1};
+//                    System.out.println("count  = "+ count++ +" " + Arrays.toString(add));
+//                    pq.add(add);
+                    pq.add(new int[]{price+next[1],next[0],stop-1});
+                }
+            }
+        }
+        return -1;
+    }
+
+
+    // bfs
     public int findCheapestPrice3(int n, int[][] flights, int src, int dst, int k) {
         int result = Integer.MAX_VALUE;
         Map<Integer, ArrayList<int[]>> map = new HashMap<>();
