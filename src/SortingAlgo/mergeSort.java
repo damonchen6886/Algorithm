@@ -1,4 +1,4 @@
-package LinkedList;
+package SortingAlgo;
 
 import java.util.Arrays;
 
@@ -43,46 +43,45 @@ public class mergeSort {
 
     }
 
-// merge sort 2:
-    public  int[] mergeSort2(int[] array){
-        if(array == null || array.length == 0){
-            return array;
-        }
-        int n = array.length;
-        int mid = n/2;
-        int[] left = mergeSort2(Arrays.copyOfRange(array, 0, mid));
-        int[] right = mergeSort2(Arrays.copyOfRange(array, mid+1, n));
-        System.out.println(Arrays.toString(left));
-        System.out.println(Arrays.toString(right));
-        return merge(left, right);
-    }
+//// merge sort 2:
+//    public  int[] mergeSort2(int[] array){
+//        if(array == null || array.length == 0){
+//            return array;
+//        }
+//        int n = array.length;
+//        int mid = n/2;
+//        int[] left = mergeSort2(Arrays.copyOfRange(array, 0, mid));
+//        int[] right = mergeSort2(Arrays.copyOfRange(array, mid+1, n));
+//        System.out.println(Arrays.toString(left));
+//        System.out.println(Arrays.toString(right));
+//        return merge(left, right);
+//    }
+//
+//    public  int[] merge(int[] left, int[] right){
+//        int leftBound = left.length, rightBound = right.length;
+//        int l = 0, r = 0;
+//        int n = leftBound + rightBound;
+//        int[] array = new int[n];
+//        for(int i = 0; i < n; i++){
+//            if(l == leftBound){
+//                array[i] = right[r++];
+//            } else if(r == rightBound){
+//                array[i] = left[l++];
+//            } else {
+//                array[i] = left[l] <= right[r] ? left[l++] : right[r++];
+//            }
+//        }
+//        System.out.println(Arrays.toString(array));
+//        return array;
+//    }
 
-    public  int[] merge(int[] left, int[] right){
-        int leftBound = left.length, rightBound = right.length;
-        int l = 0, r = 0;
-        int n = leftBound + rightBound;
-        int[] array = new int[n];
-        for(int i = 0; i < n; i++){
-            if(l == leftBound){
-                array[i] = right[r++];
-            } else if(r == rightBound){
-                array[i] = left[l++];
-            } else {
-                array[i] = left[l] <= right[r] ? left[l++] : right[r++];
-            }
-        }
-        System.out.println(Arrays.toString(array));
-        return array;
-    }
 
-
-
+////  version 2
     public void ms(int[] arr){
         if(arr.length == 0){
             return;
         }
         ms(arr,0,arr.length-1);
-
     }
     public void ms(int[] arr, int start, int end){
         if(start >=end){
@@ -93,8 +92,6 @@ public class mergeSort {
         ms(arr,mid+1,end);
         mgsort(arr, start, mid, end);
     }
-
-
 
     private void mgsort(int[] arr, int start, int mid, int end){
         int first  =start;
@@ -123,5 +120,9 @@ public class mergeSort {
 //        System.out.println(Arrays.toString(m.mergeSort2(a)));
         m.ms(a);
         System.out.println(Arrays.toString(a));
+        int[] b = new int[]{3,2,1,4,8,6,7};
+        m.mergeSort(b);
+        System.out.println(Arrays.toString(b));
+
     }
 }
