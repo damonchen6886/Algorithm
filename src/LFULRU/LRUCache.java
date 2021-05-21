@@ -65,6 +65,12 @@ public class LRUCache {
             node.prev = head;
             node.next =headnext;
             headnext.prev = node;
+            // another way to set node next to head
+            //        node.prev = head;
+            //        node.next =head.next;
+            //        head.next.prev = node;
+            //        head.next =node;
+
         }
     }
     //-------------------------------------------
