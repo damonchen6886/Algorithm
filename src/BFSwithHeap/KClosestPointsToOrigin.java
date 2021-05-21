@@ -27,6 +27,7 @@ package BFSwithHeap;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+// 973
 public class KClosestPointsToOrigin {
     // N(logK);
     public int[][] kClosest(int[][] points, int k) {
