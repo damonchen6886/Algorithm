@@ -23,6 +23,29 @@ public class TrapWater {
         }
         return result;
     }
+// another O(1) space version:
+    public int trap(int[] height) {
+        int n =  height.length;
+        int left= 0;
+        int right = n-1;
+        int leftmax = 0;
+        int rightmax= 0;
+        int result =0;
+        while(left<= right){
+            leftmax = Math.max(leftmax, height[left]);
+            rightmax = Math.max(rightmax,height[right]);
+            if(leftmax < rightmax){
+                result+= leftmax -height[left];
+                left++;
+            }
+            else{
+                result+= rightmax - height[right];
+                right--;
+            }
+        }
+        return result;
+
+    }
 
     public int trapwater(int[] arr){
         int[] leftheight  = new int[arr.length];
