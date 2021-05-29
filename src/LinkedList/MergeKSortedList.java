@@ -59,6 +59,23 @@ public class MergeKSortedList {
         }
         return dummy.next;
     }
+    /// recursive merge
+    private ListNode merge2(ListNode a, ListNode b){
+        if(a == null){
+            return b;
+        }
+        if(b == null){
+            return a;
+        }
+        if(a.value > b.value){
+            b.next = merge(a,b.next);
+            return b;
+        }
+        else{
+            a.next = merge(a.next,b);
+            return a;
+        }
+    }
 
     // heap approach:  list.size = n  average length of node：m
     // time: O(n*m log(n));
