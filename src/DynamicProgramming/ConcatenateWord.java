@@ -57,6 +57,27 @@ public class ConcatenateWord {
         return false;
     }
 
+    // dfs with dp
+    public boolean canbreak3(String input, List<String> dict){
+        Set<String> set= new HashSet<>(dict);
+        boolean[] dp = new boolean[input.length()+1];
+        return dfs(input, set, dp, 0);
+    }
+    private boolean dfs(String input, Set<String> set, boolean[] dp, int start){
+        if(start == input.length()){
+            return true;
+        }
+        if(dp[start]){
+            return dp[start];
+        }
+        for(int end = start+1; end<= input.length();end++){
+            if(set.contains(input.substring(start, end))&& dfs(input, set,dp,end)){
+                return dp[start] = true;
+            }
+        }
+        return dp[start]  =false;
+    }
+
     public static void main(String[] args) {
         List<String> dict = new ArrayList<>();
         dict.add("apple");
@@ -68,8 +89,8 @@ public class ConcatenateWord {
         dict.add("and");
         dict.add("cat");
         ConcatenateWord c = new ConcatenateWord();
-        System.out.println(c.canbreak2("applepenapple", dict));
-        System.out.println(c.canbreak2("catsandog", dict2));
+        System.out.println(c.canbreak3("applepenapple", dict));
+        System.out.println(c.canbreak3("catsandog", dict2));
     }
 
 }
