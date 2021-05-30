@@ -22,6 +22,7 @@ public class CourseSchedule {
         Map<Integer, ArrayList<Integer>> map = new HashMap<>();
         int[] indegree = new int[num];
         for(int i = 0;i < pre.length;i++){
+            // map.computeIfAbsent(pre[i][1], x-> new ArrayList<>()).add(pre[i][0]);
             map.putIfAbsent(pre[i][1], new ArrayList<>());
             map.get(pre[i][1]).add(pre[i][0]);
             indegree[pre[i][0]]++;
