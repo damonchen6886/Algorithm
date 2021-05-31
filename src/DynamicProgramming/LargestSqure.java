@@ -27,10 +27,11 @@ public class LargestSqure {
             return 0;
         }
         int m = matrix.length;
+        int n = matrix[0].length;
         int globalMax = 0;
         int[][] dp = new int[m][m];
         for(int i = 0; i < m; i++){
-            for(int j = 0; j < m; j++){
+            for(int j = 0; j < n; j++){
                 if(i == 0 || j == 0){
                     // base case;
                     dp[i][j] = matrix[i][j] == 1 ? 1 : 0;
