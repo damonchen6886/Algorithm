@@ -94,23 +94,26 @@ public class mergeSort {
     }
 
     private void mgsort(int[] arr, int start, int mid, int end){
-        int first  =start;
-        int last  =mid+1;
-        int i =0;
+        int leftIndex  =start;
+        int rightIndex  =mid+1;
+        int index =0;
         int[] temp = new int[end-start+1];
-        while(first <= mid && last <=end){
-            temp[i++] = arr[first]< arr[last] ? arr[first++] : arr[last++];
+        while(leftIndex <= mid && rightIndex <=end){
+            temp[index++] = arr[leftIndex]< arr[rightIndex] ? arr[leftIndex++] : arr[rightIndex++];
         }
-        while(first <= mid){
-            temp[i++]  =arr[first++];
+        while(leftIndex <= mid){
+            temp[index++]  =arr[leftIndex++];
         }
-        while(last <= end){
-            temp[i++] = arr[last++];
+        while(rightIndex <= end){
+            temp[index++] = arr[rightIndex++];
         }
-        i  =0;
+        index  =0;
         while(start <= end){
-            arr[start++] = temp[i++];
+            arr[start++] = temp[index++];
         }
+//        for(int i =start; i < end; i++){
+//            arr[i] = temp[i];
+//        }
     }
 
     public static void main(String[] args) {
