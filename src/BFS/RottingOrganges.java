@@ -16,6 +16,7 @@ public class RottingOrganges {
 // 2  1  1     2  2  1      2  2  2      2  2  2
 // 1  1  0  -> 2  1  0  ->  2  2  0  ->  2  2  0   -> return 4
 // 0  1  1     0  1  1      0  1  1      0  2  2
+    // 注意handle conner case： 1： 没有坏橘子  2： 没有新鲜水果 3： 最后返回的cont要减一
     public int orangesRotting(int[][] grid) {
         int[][] directions = new int[][]{{1,0},{0,1},{0,-1},{-1,0}};
         int m = grid.length;
