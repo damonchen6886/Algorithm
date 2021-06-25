@@ -63,9 +63,9 @@ public class Permutations {
                 cur.remove(cur.size()-1);
                 used[i] = false;
                 // 在后面deduplicate不用考虑 visited的问题， 而且效率上更高
-//              while(i < ns.length - 1 && ns[i + 1] == ns[i]){
-//                   i++;
-//              }
+              while(i < array.length - 1 && array[i + 1] == array[i]){
+                   i++;
+              }
             }
         }
     }
