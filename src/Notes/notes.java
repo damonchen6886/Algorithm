@@ -19,5 +19,14 @@ public class notes {
             return !a.getValue().equals(b.getValue()) ? a.getValue().compareTo(b.getValue()) : b.getKey().compareTo(a.getKey());
         });
     }
-;
+
+    public static void main(String[] args) {
+    //    List<int[]> 和 int[][] 转换：
+        List<int[]> result = new ArrayList<>();
+        result.add(new int[]{1, 2});
+        result.add(new int[]{3, 4});
+        int[][] expected = result.toArray(new int[0][]);
+        // 打印 二维数组 用deepToString
+        System.out.println(Arrays.deepToString(expected));
+    }
 }
