@@ -1,8 +1,6 @@
 package lineSweep;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class MergeIntervals {
 
@@ -30,5 +28,44 @@ public class MergeIntervals {
             }
         }
         return result.toArray(new int[result.size()][]);
+    }
+
+    // stack approach
+    public int[][] merge2(int[][] intervals) {
+        Arrays.sort(intervals, (a,b)-> a[0] == b[0] ? a[1] - b[1]: a[0] - b[0]);
+        Deque<int[]> stack=  new ArrayDeque<>();
+        for(int[] interval: intervals){
+            if(stack.isEmpty() || interval[0] > stack.peek()[1]){
+                stack.push(interval);
+            }
+            else{
+                stack.peek()[1]= Math.max(interval[1], stack.peek()[1]);
+            }
+        }
+        ArrayList<int[]> result = new ArrayList<>(stack);
+        return result.toArray(new int[0][]);
+    }
+
+    // Sort approach
+    public int[][] merge3(int[][] intervals) {
+        if(intervals.length <= 1){
+            return intervals;
+        }
+        Arrays.sort(intervals, (a,b)-> a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]);
+        List<int[]> result = new ArrayList<>();
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+        for( int[] interval: intervals){
+            if(interval[0] <= end){
+                end = Math.max(end, interval[1]);
+            }
+            else{
+                result.add(new int[]{start, end});
+                start = interval[0];
+                end = interval[1];
+            }
+        }
+        result.add(new int[]{start, end});
+        return result.toArray(new int[0][]);
     }
 }
