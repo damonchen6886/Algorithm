@@ -20,7 +20,7 @@ public class TaskScheduler {
     //Explanation:
     //A -> B -> idle -> A -> B -> idle -> A -> B
     //There is at least 2 units of time between any two same tasks.
-
+    // 思路： 建hashmap 记录每个char出现的次数 从次数多的往次数小的取 一轮取完发现pq为空 就加上差值(idle) 计算总count
     public int leastInterval(char[] tasks, int n) {
         HashMap<Character, Integer> map = new HashMap<>();
         for(int i = 0;i < tasks.length;i++){
