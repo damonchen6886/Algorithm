@@ -1,10 +1,11 @@
-package Notes;
+package BFSwithHeap;
 
 import java.util.PriorityQueue;
 
 public class FindMedianfromDataStream295 {
 
     //思路： 用两个heap 来存 左右两边的最大值 和最小值 每次加入新值的时候 判断 新值和左右顶部值的大小的 在加入到对应的heap里面
+    // 用最大堆来存左边的数， 用最小堆来存右半边的数， 保证 中位数在 最大堆的堆顶或者最小堆的堆顶
     // 复杂度 O(Log(n))
     // 简洁版：
     class MedianFinder {
