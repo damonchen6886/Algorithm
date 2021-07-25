@@ -1,4 +1,4 @@
-package Notes;
+package PrefixSum;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,10 +6,10 @@ import java.util.Map;
 //Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k
 //Input:nums = [1,1,1], k = 2
 //Output: 2 index0+index1 =2; index1+index2 =2; count  =2;
-
+// leetcode 560
 public class SubarraySumK {
     // O(n) 前缀和
-    //
+    // 计算每个和出现的次数 每次循环count加上总数
     public int subarraySum(int[] nums, int k) {
         int n = nums.length;
         Map<Integer, Integer> map = new HashMap<>();
