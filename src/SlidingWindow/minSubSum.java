@@ -1,4 +1,4 @@
-package day39;
+package SlidingWindow;
 
 public class minSubSum {
 
