@@ -11,7 +11,9 @@ public class MaxPathSum {
             value = _value;
         }
     }
-    //Given a binary tree in which each node contains an integer number. Find the maximum possible sum from one leaf node to another leaf node. If there is no such path available, return Integer.MIN_VALUE(Java)/INT_MIN (C++).
+    //Given a binary tree in which each node contains an integer number. Find the maximum possible
+    // sum from one leaf node to another leaf node.
+    // If there is no such path available, return Integer.MIN_VALUE(Java)/INT_MIN (C++).
     //
     //Examples
     //                -5
@@ -51,7 +53,9 @@ public class MaxPathSum {
 
 
 //
-//Follow Up 1: Given a binary tree in which each node contains an integer number. Find the maximum possible subpath sum(both the starting and ending node of the subpath should be on the same path from root to one of the leaf nodes, and the subpath is allowed to contain only one node).
+//Follow Up 1: Given a binary tree in which each node contains an integer number.
+// Find the maximum possible subpath sum(both the starting and ending node of the subpath should be on the same path
+// from root to one of the leaf nodes, and the subpath is allowed to contain only one node).
 //
 //Assumptions
 //
