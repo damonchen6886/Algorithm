@@ -91,6 +91,40 @@ public class CourseSchedule {
         return index == num ? result: new int[0];
 
     }
+
+    // Array 版本
+    public int[] findOrder3(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> course = new ArrayList<>(numCourses);
+        int[] indegree = new int[numCourses];
+        for(int i = 0; i < numCourses;i++){
+            course.add(new ArrayList<>());
+        }
+        for(int[] p : prerequisites){
+            course.get(p[1]).add(p[0]);
+            indegree[p[0]]++;
+        }
+        Queue<Integer> q = new ArrayDeque<>();
+        for(int i = 0; i< numCourses;i++){
+            if(indegree[i] == 0){
+                q.offer(i);
+            }
+        }
+        int[] result = new int[numCourses];
+        int index = 0;
+        while(!q.isEmpty()){
+            int cur = q.poll();
+            result[index++] = cur;
+            int size = course.get(cur).size();
+            for(int i = 0 ; i< size;i++){
+                int next = course.get(cur).get(i);
+                indegree[next]--;
+                if(indegree[next] ==0){
+                    q.offer(next);
+                }
+            }
+        }
+        return index == numCourses ? result : new int[0];
+    }
 ;
 
 
