@@ -1,4 +1,4 @@
-package OA;
+package OA.Gala;
 
 public class OCRScan {
 
@@ -49,11 +49,15 @@ public class OCRScan {
     public static void main(String[] args) {
         OCRScan o = new OCRScan();
 
-        System.out.println(o.scanChar("A2Le", "2pL1"));
-        System.out.println(o.scanChar("A12Le", "12pL1"));
-        System.out.println(o.scanChar("ba1", "1Ad"));
-        System.out.println(o.scanChar("3x2x", "8"));
-        System.out.println(o.scanChar("a10", "10a"));
-        System.out.println(o.scanChar("bbb", "3"));
+//        System.out.println(o.scanChar("A2Le", "2pL1"));
+//        System.out.println(o.scanChar("A12Le", "12pL1"));
+//        System.out.println(o.scanChar("ba1", "1Ad"));
+//        System.out.println(o.scanChar("3x2x", "8"));
+//        System.out.println(o.scanChar("a10", "10a"));
+//        System.out.println(o.scanChar("bbb", "3"));
+        System.out.println((int)('0'));
+        System.out.println((int)('z'-'0'));
+        System.out.println((int)('D'-'0'));
+        System.out.println((int)('6'-'0'));
     }
 }
